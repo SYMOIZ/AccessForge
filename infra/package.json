@@ -1,0 +1,18 @@
+{
+  "name": "accessforge-infra",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.265.0",
+    "constructs": "^10.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "aws-cdk": "^2.1136.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

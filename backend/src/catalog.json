@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "source": "AWS IAM action names verified against official AWS documentation. Catalog is intentionally small and extendable.",
+  "identities": [
+    {
+      "id": "developer",
+      "name": "Developer",
+      "description": "Simulated application developer identity. Not a real IAM user."
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "description": "Simulated analyst identity for read-oriented data access."
+    },
+    {
+      "id": "lambda-execution-role",
+      "name": "Lambda Execution Role",
+      "description": "Simulated Lambda execution role. Creating this does not create an IAM role."
+    },
+    {
+      "id": "application-role",
+      "name": "Application Role",
+      "description": "Simulated application runtime role."
+    },
+    {
+      "id": "read-only-user",
+      "name": "Read Only User",
+      "description": "Simulated read-only identity."
+    },
+    {
+      "id": "custom-role",
+      "name": "Custom Role",
+      "description": "Simulated custom identity. You may rename it in the playground."
+    }
+  ],
+  "resources": [
+    {
+      "id": "s3",
+      "service": "Amazon S3",
+      "arnTemplate": "arn:aws:s3:::example-bucket/path",
+      "exampleArn": "arn:aws:s3:::reports/*",
+      "arnNote": "Example/simulated ARN. Replace with a real bucket ARN only when you intend to copy the policy elsewhere.",
+      "docs": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html",
+      "actions": [
+        {
+          "action": "s3:GetObject",
+          "description": "Retrieve an object from a bucket."
+        },
+        {
+          "action": "s3:PutObject",
+          "description": "Upload or overwrite an object."
+        },
+        {
+          "action": "s3:ListBucket",
+          "description": "List objects in a bucket. Resource should be the bucket ARN, not object keys."
+        },
+        {
+          "action": "s3:DeleteObject",
+          "description": "Delete an object from a bucket."
+        }
+      ]
+    },
+    {
+      "id": "dynamodb",
+      "service": "Amazon DynamoDB",
+      "arnTemplate": "arn:aws:dynamodb:us-east-1:123456789012:table/example-table",
+      "exampleArn": "arn:aws:dynamodb:us-east-1:123456789012:table/reports",
+      "arnNote": "Example/simulated ARN. The account ID and table name are placeholders.",
+      "docs": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html",
+      "actions": [
+        {
+          "action": "dynamodb:GetItem",
+          "description": "Read a single item by primary key."
+        },
+        {
+          "action": "dynamodb:PutItem",
+          "description": "Create or replace an item."
+        },
+        {
+          "action": "dynamodb:Query",
+          "description": "Query items by primary key or index."
+        },
+        {
+          "action": "dynamodb:DeleteItem",
+          "description": "Delete a single item."
+        }
+      ]
+    },
+    {
+      "id": "lambda",
+      "service": "AWS Lambda",
+      "arnTemplate": "arn:aws:lambda:us-east-1:123456789012:function:example-function",
+      "exampleArn": "arn:aws:lambda:us-east-1:123456789012:function:process-reports",
+      "arnNote": "Example/simulated ARN. The account ID and function name are placeholders.",
+      "docs": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html",
+      "actions": [
+        {
+          "action": "lambda:InvokeFunction",
+          "description": "Invoke a Lambda function."
+        }
+      ]
+    },
+    {
+      "id": "bedrock",
+      "service": "Amazon Bedrock",
+      "arnTemplate": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0",
+      "exampleArn": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0",
+      "arnNote": "Example/simulated foundation-model ARN. InvokeModel also supports inference profile ARNs.",
+      "docs": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "actions": [
+        {
+          "action": "bedrock:InvokeModel",
+          "description": "Run inference with InvokeModel or Converse."
+        },
+        {
+          "action": "bedrock:InvokeModelWithResponseStream",
+          "description": "Run streaming inference with InvokeModelWithResponseStream or ConverseStream."
+        },
+        {
+          "action": "bedrock:ListFoundationModels",
+          "description": "List available foundation models. This control-plane action uses Resource *."
+        }
+      ]
+    }
+  ]
+}

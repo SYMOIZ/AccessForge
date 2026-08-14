@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AccessForge — Design. Simulate. Understand AWS Access.</title>
+    <style>
+      html, body, #root {
+        margin: 0;
+        min-height: 100vh;
+        background: #0b1220;
+        color: #f4f7fb;
+        font-family: Figtree, Segoe UI, sans-serif;
+      }
+      .boot {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .boot strong {
+        display: block;
+        letter-spacing: 0.14em;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root">
+      <div class="boot">
+        <div>
+          <strong>ACCESSFORGE</strong>
+          <div>Loading the access playground…</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.global = window;
+      window.process = window.process || { env: {} };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
